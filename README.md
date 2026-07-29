@@ -53,6 +53,21 @@ Before configuring the endpoint, the agent profile was registered through the ce
 
 4. Selected Windows as the operating system, specified the Linux Manager's static IP address, and generated the customized PowerShell deployment script block.
 
+<img width="701" height="160" alt="browser_log-in" src="https://github.com/user-attachments/assets/e8dda666-ebcd-41a5-ba8e-c1c8dc4eddb1" />
+
+<img width="834" height="656" alt="log-in_page" src="https://github.com/user-attachments/assets/b0818f51-1487-425d-add6-740e4ee10193" />
+
+<img width="1007" height="108" alt="add_agent" src="https://github.com/user-attachments/assets/d61644cc-4fc0-4915-a28f-8e95bca6e37b" />
+
+<img width="1002" height="552" alt="deploying" src="https://github.com/user-attachments/assets/0ca8664b-945d-4fe0-b086-183189dda78d" />
+
+<img width="976" height="538" alt="deploying2" src="https://github.com/user-attachments/assets/b0d33cbb-93d7-4c9b-9629-2b6d6db0244e" />
+
+<img width="976" height="588" alt="deploying_group" src="https://github.com/user-attachments/assets/143e0457-12a7-48a5-a025-23b0d977c82b" />
+
+<img width="953" height="551" alt="deploying_PS_script" src="https://github.com/user-attachments/assets/75a65f7f-51c8-4d01-8539-68f81e12bf3b" />
+
+
 
 
 [Insert Screenshot: Wazuh Dashboard "Deploy New Agent" wizard showing the generated PowerShell command line string]
