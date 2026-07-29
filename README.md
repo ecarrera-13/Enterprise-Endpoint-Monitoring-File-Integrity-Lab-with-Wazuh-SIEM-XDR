@@ -140,7 +140,7 @@ Get-Service -Name "wazuh-agent"
 
 <img width="1013" height="321" alt="DNS_change_package_installed_started_service" src="https://github.com/user-attachments/assets/a761e17a-cd46-4bbc-9d90-a48bba76d4c1" />
 
-
+---
 
 
 ### Phase 4: File Integrity Monitoring (FIM) Configuration
@@ -200,8 +200,9 @@ To validate end-to-end functionality, a lifecycle file integrity test was perfor
 
 #### 2. The Result: Navigating back to the Wazuh Dashboard -> Modules -> File Integrity Monitoring -> Events page confirmed that the system intercepted and visualized the actions seamlessly.
 
-The web console successfully logged the entire sequence across multiple rule levels:
+---
 
+The web console successfully logged the entire sequence across multiple rule levels:
 
 
 - Rule 554: File added to the system (Creation event)
@@ -218,6 +219,7 @@ The web console successfully logged the entire sequence across multiple rule lev
 
 <img width="1023" height="602" alt="Tracked_changes" src="https://github.com/user-attachments/assets/b25b61c9-7703-4ea3-b84a-2016d3349c34" />
 
+---
 
 ## Core Security Capabilities Demonstrated
 
