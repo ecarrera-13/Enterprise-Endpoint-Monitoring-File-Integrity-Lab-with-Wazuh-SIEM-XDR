@@ -1,21 +1,21 @@
 # Enterprise-Endpoint-Monitoring-File-Integrity-Lab-with-Wazuh-SIEM-XDR
 Configured Wazuh Manager on Linux and installed Wazuh Agent on Windows 11 Pro Workstation using VMs
 
-Enterprise Endpoint Monitoring & File Integrity Lab with Wazuh SIEM/XDR
-Project Overview
+# Enterprise Endpoint Monitoring & File Integrity Lab with Wazuh SIEM/XDR
+## Project Overview
 This project demonstrates the deployment of a centralized Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) architecture. The objective of the lab was to establish real-time security telemetry ingestion, centralize event logs, and configure host-based File Integrity Monitoring (FIM).
 
 The implementation involved provisioning a Wazuh Manager on a Linux instance, navigating the cloud management console to generate a deployment profile, troubleshooting network/DNS isolation issues on a Windows 11 Pro workstation, and verifying end-to-end alert telemetry on the live dashboard.
 
-Architecture & Environment
-SIEM/XDR Server (Wazuh Manager): Linux (Ubuntu 22.04 LTS / Debian)
+## Architecture & Environment
+- SIEM/XDR Server (Wazuh Manager): Linux (Ubuntu 22.04 LTS / Debian)
 
-Monitored Endpoint (Wazuh Agent): Windows 11 Pro Workstation (Virtual Machine)
+- Monitored Endpoint (Wazuh Agent): Windows 11 Pro Workstation (Virtual Machine)
 
-Network Layout: Multi-host lab network requiring direct DNS resolution over port 53 and telemetry routing over ports 1514 (Agent communication) and 1515 (Enrollment).
+- Network Layout: Multi-host lab network requiring direct DNS resolution over port 53 and telemetry routing over ports 1514 (Agent communication) and 1515 (Enrollment).
 
-Technical Deployment Steps
-Phase 1: Initializing the Wazuh Manager (Linux)
+## Technical Deployment Steps
+### Phase 1: Initializing the Wazuh Manager (Linux)
 The deployment began by installing and starting the core SIEM infrastructure components (Indexer, Server, and Dashboard) on the central Linux machine.
 
 Run the automated all-in-one installation assistant:
