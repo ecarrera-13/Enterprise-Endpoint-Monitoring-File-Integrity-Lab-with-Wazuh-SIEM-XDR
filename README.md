@@ -35,7 +35,12 @@ sudo systemctl status wazuh-manager
 ```
 
 
-[Insert Screenshot: Linux terminal showing successful installation output and the wazuh-manager service active]
+<img width="656" height="228" alt="wazuh_status" src="https://github.com/user-attachments/assets/6fa23fe1-a933-49dd-be24-9f190c6af083" />
+
+<img width="978" height="731" alt="status_running" src="https://github.com/user-attachments/assets/3446a08b-32fd-45de-b222-228a2a4677cb" />
+
+
+---
 
 ### Phase 2: Generating the Agent Deployment Profile
 Before configuring the endpoint, the agent profile was registered through the central management application to obtain the necessary installation arguments.
