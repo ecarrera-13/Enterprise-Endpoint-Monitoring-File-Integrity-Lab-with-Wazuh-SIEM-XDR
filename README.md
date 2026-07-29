@@ -63,13 +63,10 @@ The standard Invoke-WebRequest installation command failed initially, throwing a
 
 To circumvent this, the workstation's network adapter settings were manually updated directly inside an Administrative PowerShell session to point to Google's Public DNS (8.8.8.8):
 
-
+Identify the active network interface alias
 
 ```PowerShell
-
-
-
-# Identify the active network interface aliasGet-NetAdapter# Set the primary DNS server to bypass the broken lab resolverSet-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8")
+Get-NetAdapter# Set the primary DNS server to bypass the broken lab resolverSet-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8")
 ```
 (Note: Replace "Ethernet" with the specific interface alias returned by your system).
 
