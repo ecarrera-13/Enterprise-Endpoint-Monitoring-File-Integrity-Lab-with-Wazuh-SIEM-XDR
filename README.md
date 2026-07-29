@@ -18,12 +18,11 @@ The implementation involved provisioning a Wazuh Manager on a Linux instance, na
 ### Phase 1: Initializing the Wazuh Manager (Linux)
 The deployment began by installing and starting the core SIEM infrastructure components (Indexer, Server, and Dashboard) on the central Linux machine.
 
-Run the automated all-in-one installation assistant:
+1. Run the automated all-in-one installation assistant:
 
-Bash
-curl -sO https://packages.wazuh.com/4.x/wazuh-install.sh
-sudo bash wazuh-install.sh -a
-Verify that the core engine is up and listening:
+'''curl -sO https://packages.wazuh.com/4.x/wazuh-install.sh
+sudo bash wazuh-install.sh -a'''
+2. Verify that the core engine is up and listening:
 
 Bash
 sudo systemctl status wazuh-manager
