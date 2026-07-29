@@ -154,7 +154,7 @@ To showcase host-based intrusion detection capabilities, the agent was configure
 
 #### 2. Navigated to the <syscheck> configuration block and appended a new directory monitoring definition. The realtime="yes" and report_changes="yes" attributes were specified to ensure instant alert delivery and deep content diff tracking:
 
-**Alternatively, you may use the GUI to open the Wazuh Agent Manager and make the configuration changes by inserting the line of code shown in the image below. Be sure to save the file before closing.**
+*Alternatively, you may use the GUI to open the Wazuh Agent Manager and make the configuration changes by inserting the line of code shown in the image below. Be sure to save the file before closing.*
 
 <img width="645" height="319" alt="manage_agent_on_windows" src="https://github.com/user-attachments/assets/6061f9be-f120-45ea-9d62-94f5952d664c" />
 
@@ -188,8 +188,6 @@ Restart-Service -Name "wazuh-agent"
 <img width="1021" height="682" alt="FIM_insert" src="https://github.com/user-attachments/assets/caf98bde-a286-41ff-9777-42eb0f832efa" />
 
 
-[Insert Screenshot: The Windows ossec.conf file open in a text editor, highlighting the newly added XML block]
-
 ---
 
 ### Phase 5: Security Event Verification & FIM Logs
@@ -212,7 +210,14 @@ The web console successfully logged the entire sequence across multiple rule lev
 
 - Rule 553: File deleted from the system (Destruction event)
 
-[Insert Screenshot: The main Wazuh Dashboard Events page displaying the precise FIM logs, showcasing the generated Rule IDs and paths mapped from the Windows endpoint]
+<img width="1001" height="600" alt="wazuh_total_agents" src="https://github.com/user-attachments/assets/2f9041e9-05e9-4448-8bf1-e327a06f6d16" />
+
+<img width="1017" height="602" alt="Integrity_check_module" src="https://github.com/user-attachments/assets/a43b267e-e9f2-4644-96d8-9a50a376ddf1" />
+
+<img width="1017" height="605" alt="Integrity_check_module_events" src="https://github.com/user-attachments/assets/8daafae3-e519-4d57-bd04-7652231c6265" />
+
+<img width="1023" height="602" alt="Tracked_changes" src="https://github.com/user-attachments/assets/b25b61c9-7703-4ea3-b84a-2016d3349c34" />
+
 
 ## Core Security Capabilities Demonstrated
 
