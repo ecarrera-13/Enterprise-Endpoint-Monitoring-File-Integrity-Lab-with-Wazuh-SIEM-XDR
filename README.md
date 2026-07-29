@@ -211,7 +211,7 @@ The web console successfully logged the entire sequence across multiple rule lev
 
 - Rule 553: File deleted from the system (Destruction event)
 
-<img width="1001" height="600" alt="wazuh_total_agents" src="https://github.com/user-attachments/assets/2f9041e9-05e9-4448-8bf1-e327a06f6d16" />
+<img width="1001" height="600" alt="wazuh_total_agents" src="https://github.com/user-attachments/assets/6e8bb933-be6a-4b6b-a84b-0db80863e959" />
 
 <img width="1017" height="602" alt="Integrity_check_module" src="https://github.com/user-attachments/assets/a43b267e-e9f2-4644-96d8-9a50a376ddf1" />
 
