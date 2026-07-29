@@ -1,28 +1,33 @@
 # Enterprise-Endpoint-Monitoring-File-Integrity-Lab-with-Wazuh-SIEM-XDR
 Configured Wazuh Manager on Linux and installed Wazuh Agent on Windows 11 Pro Workstation using VMs
 
+Markdown
 # Enterprise Endpoint Monitoring & File Integrity Lab with Wazuh SIEM/XDR
-## Project Overview
-This project demonstrates the deployment of a centralized Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) architecture. The objective of the lab was to establish real-time security telemetry ingestion, centralize event logs, and configure host-based File Integrity Monitoring (FIM).
 
-The implementation involved provisioning a Wazuh Manager on a Linux instance, navigating the cloud management console to generate a deployment profile, troubleshooting network/DNS isolation issues on a Windows 11 Pro workstation, and verifying end-to-end alert telemetry on the live dashboard.
+## Project Overview
+This project demonstrates the deployment of a centralized Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) architecture. The objective of the lab was to establish real-time security telemetry ingestion, centralize event logs, and configure host-based File Integrity Monitoring (FIM). 
+
+The implementation involved provisioning a **Wazuh Manager** on a Linux instance, navigating the cloud management console to generate a deployment profile, troubleshooting network/DNS isolation issues on a **Windows 11 Pro workstation**, and verifying end-to-end alert telemetry on the live dashboard.
+
+---
 
 ## Architecture & Environment
-- SIEM/XDR Server (Wazuh Manager): Linux (Ubuntu 22.04 LTS / Debian)
+* **SIEM/XDR Server (Wazuh Manager):** Linux (Ubuntu 22.04 LTS / Debian)
+* **Monitored Endpoint (Wazuh Agent):** Windows 11 Pro Workstation (Virtual Machine)
+* **Network Layout:** Multi-host lab network requiring direct DNS resolution over port 53 and telemetry routing over ports 1514 (Agent communication) and 1515 (Enrollment).
 
-- Monitored Endpoint (Wazuh Agent): Windows 11 Pro Workstation (Virtual Machine)
-
-- Network Layout: Multi-host lab network requiring direct DNS resolution over port 53 and telemetry routing over ports 1514 (Agent communication) and 1515 (Enrollment).
+---
 
 ## Technical Deployment Steps
+
 ### Phase 1: Initializing the Wazuh Manager (Linux)
 The deployment began by installing and starting the core SIEM infrastructure components (Indexer, Server, and Dashboard) on the central Linux machine.
 
-1. Run the automated all-in-one installation assistant:
-
-'''curl -sO https://packages.wazuh.com/4.x/wazuh-install.sh
-sudo bash wazuh-install.sh -a'''
-2. Verify that the core engine is up and listening:
+1. **Run the automated all-in-one installation assistant:**
+```bash
+curl -sO [https://packages.wazuh.com/4.x/wazuh-install.sh](https://packages.wazuh.com/4.x/wazuh-install.sh)
+sudo bash wazuh-install.sh -a
+Verify that the core engine is up and listening:
 
 Bash
 sudo systemctl status wazuh-manager
@@ -63,7 +68,7 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8
 With public name resolution successfully restored, the PowerShell script executed cleanly to download the MSI package, dynamically configure the manager IP address, and start the system service.
 
 PowerShell
-Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.x-1.msi -OutFile wazuh-agent.msi
+Invoke-WebRequest -Uri [https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.x-1.msi](https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.x-1.msi) -OutFile wazuh-agent.msi
 msiexec /i wazuh-agent.msi /q WAZUH_MANAGER="<YOUR_LINUX_MANAGER_IP>"
 net start wazuh-agent
 3. Verifying Endpoint Connection Status
@@ -89,7 +94,7 @@ Restarted the endpoint agent via PowerShell to load the new policy:
 
 PowerShell
 Restart-Service -Name wazuh-agent
-[Insert Screenshot: The Windows ossec.conf file open in a text editor, highlighting the newly added XML <directories> block]
+[Insert Screenshot: The Windows ossec.conf file open in a text editor, highlighting the newly added XML  block]
 
 Phase 5: Security Event Verification & FIM Logs
 To validate end-to-end functionality, a lifecycle file integrity test was performed directly on the Windows 11 workstation.
@@ -112,5 +117,7 @@ Core Security Capabilities Demonstrated
 DNS & Network Remediation: Diagnosing internal network blocks and utilizing administrative scripting interfaces to alter baseline IP stacks.
 
 SIEM Ingestion: Registering standalone operating system endpoints into a unified central management console.
+
+File Auditing: Implementing strict configuration parameters to audit runtime directory updates and preserve forensic chains of evidence.
 
 File Auditing: Implementing strict configuration parameters to audit runtime directory updates and preserve forensic chains of evidence.
