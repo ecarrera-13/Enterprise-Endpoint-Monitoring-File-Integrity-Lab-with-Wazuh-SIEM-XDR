@@ -67,10 +67,7 @@ Before configuring the endpoint, the agent profile was registered through the ce
 
 <img width="953" height="551" alt="deploying_PS_script" src="https://github.com/user-attachments/assets/75a65f7f-51c8-4d01-8539-68f81e12bf3b" />
 
-
-
-
-[Insert Screenshot: Wazuh Dashboard "Deploy New Agent" wizard showing the generated PowerShell command line string]
+---
 
 ### Phase 3: Endpoint DNS Troubleshooting & Agent Installation
 When transitioning to the Windows 11 Pro workstation to run the deployment script, the automated download command failed due to internal lab network limitations.
@@ -101,9 +98,15 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8
 ```
 (Note: Replace "Ethernet" with the specific interface alias returned by your system).
 
+<img width="1003" height="173" alt="invoke_not_resolved" src="https://github.com/user-attachments/assets/823f5dc6-8fdd-4a25-905e-17001c11f6bc" />
+
+<img width="998" height="323" alt="troubleshooting" src="https://github.com/user-attachments/assets/8e08b9d8-dabb-4445-8020-491b674e2278" />
+
+<img width="1013" height="321" alt="DNS_change_package_installed_started_service" src="https://github.com/user-attachments/assets/785134f8-0121-4ff1-8804-7fe5578a1f83" />
 
 
-[Insert Screenshot: Windows PowerShell showing the red InvalidOperation error text, followed by the execution of the Set-DnsClientServerAddress command]
+
+---
 
 #### 2. Running the Agent Script
 
@@ -134,7 +137,11 @@ To ensure telemetry was flowing, the connection status was verified locally on t
 
 Get-Service -Name "wazuh-agent"
 ```
-[Insert Screenshot: Windows PowerShell showing the installer downloading without errors, the service successfully starting, and its active status state]
+
+<img width="1013" height="321" alt="DNS_change_package_installed_started_service" src="https://github.com/user-attachments/assets/a761e17a-cd46-4bbc-9d90-a48bba76d4c1" />
+
+
+
 
 ### Phase 4: File Integrity Monitoring (FIM) Configuration
 
@@ -142,9 +149,17 @@ To showcase host-based intrusion detection capabilities, the agent was configure
 
 
 
-#### 1. Opened the local Windows configuration file (C:\Program Files (x86)\ossec-agent\ossec.conf) using an administrative text editor.
+#### 1. Opened the local Windows configuration file (C:\Program Files (x86)\ossec-agent\ossec.conf) using an administrative text editor. 
+
 
 #### 2. Navigated to the <syscheck> configuration block and appended a new directory monitoring definition. The realtime="yes" and report_changes="yes" attributes were specified to ensure instant alert delivery and deep content diff tracking:
+
+**Alternatively, you may use the GUI to open the Wazuh Agent Manager and make the configuration changes by inserting the line of code shown in the image below. Be sure to save the file before closing.**
+
+<img width="645" height="319" alt="manage_agent_on_windows" src="https://github.com/user-attachments/assets/6061f9be-f120-45ea-9d62-94f5952d664c" />
+
+<img width="332" height="293" alt="Agent_Manager" src="https://github.com/user-attachments/assets/31e48138-e811-4416-95f0-65325f0b4267" />
+
 
 
 
@@ -168,7 +183,14 @@ Restarted the endpoint agent via PowerShell to load the new policy:
 
 Restart-Service -Name "wazuh-agent"
 ```
+
+
+<img width="1021" height="682" alt="FIM_insert" src="https://github.com/user-attachments/assets/caf98bde-a286-41ff-9777-42eb0f832efa" />
+
+
 [Insert Screenshot: The Windows ossec.conf file open in a text editor, highlighting the newly added XML block]
+
+---
 
 ### Phase 5: Security Event Verification & FIM Logs
 
