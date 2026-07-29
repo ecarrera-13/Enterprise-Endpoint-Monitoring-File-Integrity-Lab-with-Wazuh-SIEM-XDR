@@ -37,31 +37,27 @@ sudo systemctl status wazuh-manager
 
 [Insert Screenshot: Linux terminal showing successful installation output and the wazuh-manager service active]
 
-Phase 2: **Generating the Agent Deployment Profile**
-
+### Phase 2: Generating the Agent Deployment Profile
 Before configuring the endpoint, the agent profile was registered through the central management application to obtain the necessary installation arguments.
 
+1. Opened a local web browser and navigated to the Wazuh Dashboard web interface (https://<YOUR_LINUX_MANAGER_IP>).
 
+2. Logged in using the administrator credentials.
 
-Opened a local web browser and navigated to the Wazuh Dashboard web interface (https://<YOUR_LINUX_MANAGER_IP>).
+3. Navigated to Management -> Agents -> Deploy new agent.
 
-Logged in using the administrator credentials.
-
-Navigated to Management -> Agents -> Deploy new agent.
-
-Selected Windows as the operating system, specified the Linux Manager's static IP address, and generated the customized PowerShell deployment script block.
+4. Selected Windows as the operating system, specified the Linux Manager's static IP address, and generated the customized PowerShell deployment script block.
 
 
 
 [Insert Screenshot: Wazuh Dashboard "Deploy New Agent" wizard showing the generated PowerShell command line string]
 
-Phase 3: Endpoint DNS Troubleshooting & Agent Installation
-
+### Phase 3: Endpoint DNS Troubleshooting & Agent Installation
 When transitioning to the Windows 11 Pro workstation to run the deployment script, the automated download command failed due to internal lab network limitations.
 
 
 
-Troubleshooting the DNS Resolution Failure
+1. Troubleshooting the DNS Resolution Failure
 
 The standard Invoke-WebRequest installation command failed initially, throwing a stream of red InvalidOperation exceptions in the terminal because the lab's pre-configured DNS server could not resolve external web hosts (packages.wazuh.com).
 
@@ -69,19 +65,19 @@ To circumvent this, the workstation's network adapter settings were manually upd
 
 
 
-PowerShell
+```PowerShell
 
 
 
 # Identify the active network interface aliasGet-NetAdapter# Set the primary DNS server to bypass the broken lab resolverSet-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("8.8.8.8")
-
+```
 (Note: Replace "Ethernet" with the specific interface alias returned by your system).
 
 
 
 [Insert Screenshot: Windows PowerShell showing the red InvalidOperation error text, followed by the execution of the Set-DnsClientServerAddress command]
 
-Running the Agent Script
+2. Running the Agent Script
 
 With public name resolution successfully restored, the PowerShell script executed cleanly to download the MSI package, dynamically configure the manager IP address, and start the system service.
 
